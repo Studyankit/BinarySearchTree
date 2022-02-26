@@ -82,5 +82,25 @@ namespace BinarySearchTree
             else
                 return (Size(root.left) + 1 + Size(root.right));
         }
+        public bool Search(INode<T> root, T key)
+        {
+
+            if (root == null)
+            {
+                return false;
+            }
+            if (root.data.CompareTo(key) == 0)
+            {
+                return true;
+            }
+            else if (root.data.CompareTo(key) > 0)
+            {
+                return Search(root.left, key);
+            }
+            else
+            {
+                return Search(root.right, key);
+            }
+        }
     }
 }
